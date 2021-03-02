@@ -2,17 +2,20 @@
   "name": "rx-local-store",
   "version": "1.0.0",
   "description": "simple-local-store",
-  "main": "rx-local-store",
+  "main": "dist/bundle.js",
   "author": "derek",
   "license": "MIT",
   "private": false,
+  "module": "dist/bundle.js",
   "scripts": {
     "build:src": "yarn rollup -c",
     "build:types": "tsc --emitDeclarationOnly",
     "build": "npm run build:src && npm run build:types"
   },
   "dependencies": {
-    "rxjs": "^6.6.6",
+    "rxjs": "^6.6.6"
+  },
+  "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-typescript": "^7.13.0",
@@ -24,8 +27,15 @@
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^2.1.0",
     "tslint": "^6.1.3",
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "^4.2.2"
-  }
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "types": "dist/types/public-api.d.ts"
 }

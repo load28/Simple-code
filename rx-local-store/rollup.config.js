@@ -4,12 +4,13 @@ import babelPluginFactory from 'rollup-plugin-babel';
 import pkg from './package.json';
 import peerDep from 'rollup-plugin-peer-deps-external';
 import del from 'rollup-plugin-delete';
+import typescript from 'rollup-plugin-typescript' ;
 
 const extensions = ['.js', '.ts'];
 process.env.BABEL_ENV = 'production';
 
 export default {
-    input: './src/index.ts',
+    input: 'public-api.ts',
     plugins: [
         del({
             targets: 'dist/*',
@@ -17,6 +18,7 @@ export default {
         }),
         peerDep(),
         nodeResolve({extensions}),
+        typescript(),
         commonjs({
             include: 'node_modules/**/*'
         }),

@@ -10,7 +10,7 @@ import {
 import {MapFunction, SnapshotState, UpdateStateCallback} from "./types";
 
 export class LocalStore<T> {
-    private state: { stateSub: Subject<T>, stateObs$: Observable<Readonly<T>> };
+    private state: { stateSub: Subject<T>; stateObs$: Observable<Readonly<T>>; };
     private currentStateValue: SnapshotState<T>;
 
     constructor(initState: Partial<T>) {

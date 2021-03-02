@@ -1,0 +1,9 @@
+{
+  "name": "Simple-code",
+  "version": "1.0.0",
+  "description": "derek",
+  "main": "index.js",
+  "author": "derek",
+  "license": "MIT",
+  "private": false
+}

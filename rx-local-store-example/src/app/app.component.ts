@@ -12,7 +12,6 @@ export class AppComponent implements OnInit, OnDestroy {
   nameStore: LocalStore<{ name: string }>;
 
   constructor() {
-
   }
 
   ngOnInit(): void {

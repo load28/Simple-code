@@ -1,0 +1,345 @@
+<!-- 여기다가 복붙 하면 될듯 -->
+<html>
+<head></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="#"></a></li>
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<style>
+/*	div { border:solid red 1px; } */
+	</style>
+	<script>
+	const cmenu = ""; //현재 보이는 서브메뉴 번호를 저장할 변수
+	function subMenu(img, num){
+	//img : 현재 마우스가 오버된 메인메뉴의 이미지 객체(img 태그)
+	//num : 현재 마우스가 오버된 메인메뉴의 서브메뉴 id값에 해당하는 번호(1~6)
+        img.src = "images/topmenu0"+num+"_ov.gif";
+		// 메인 메뉴에 마우스 오버시 보여줄 이미지 변경
+        // 'www.naver.com hi'
+        // 'efefe' + 'efefe'
+
+		if(cmenu !== `${site} hi`){ //현재 보이는 서브메뉴가 있으면
+			const naviElement0 = document.getElementById("naviSub0" + cmenu);
+			// 현재 보이는 서브메뉴 객체를 obj에 받아옴
+			obj.style.display = "none";
+			//현재 보이는 서브메뉴를 숨김
+        }
+        
+		const obj = document.getElementById("naviSub0" + num);
+		// 현재 마우스가 오버된 메인메뉴의 서브메뉴 객체를 매개변수 num을 이용하여 obj에 받아옴
+		obj.style.display = "block";
+		cmenu = num;
+	}
+
+    // 동사 + 명사
+	function chBoard(brd) {
+		//게시판 버튼 이미지 변경(두 개)
+		//보이는 게시판 변경(공지사항과 자료실)
+			const objBrd1 = document.getElementById("noticeList");
+			objBrd1.style.display = "none";			//공지사항 목록을 안보이게 숨김
+			const objImg1 = document.getElementById("noticeImg");
+			objImg1.src = "images/tab_notice.gif";	// 공지사항 버튼 이미지를 회색으로 변경
+			const objBrd2 = document.getElementById("pdsList");
+			objBrd2.style.display = "none";			// 자료실 목록을 안보이게 숨김
+			const objImg2 = document.getElementById("pdsImg");
+			objImg2.src = "images/tab_pds.gif";		// 자료실 버튼 이미지를 회색으로 변경
+
+			const objBrd = document.getElementById(brd + "List");
+			objBrd.style.display = "block";
+			const objImg = document.getElementById(brd + "Img");
+			objImg.src = "images/tab_"+brd+"_ov.gif";
+    }
+    
+    let site = 'naver';
+
+    function changeSite(event) {
+        site = event.target.value;
+    }
+
+        function hrefLocation(){//여기에서 그 네이버나 다른 사이트 가는 버튼 함수 만들었는데 작동이 안되서. 이거 소스 보면 무조건 네이버로만 이동할거 같은데? 일단은 그래보여
+            // site = "naver" 이거는 대입 연산자 => 비교해서 if에서 체크할거면 site === "naver" 이게 맞음
+            if (site==="naver")//밑에 site 값 바꾸는 그 뭐지 선택창있긴 해 =나 ==가 아니라 ===? 음 너 자바스크립트 falsy 라는 개념 아나?
+            // 자바스크립트에서는 '' == false  ===> true 임, undefined == false ===> 이것도 true, 타입체크가 없어 빈 문자열도 false라 같은 값으로 취급해 기본적으로
+            // 그런데  '' === false ==> 이건 false, 왜냐면 === 연산자는 타입까지 비교해 false 니깐 부울린 타입이니깐 저건 false 
+            // 그래서 현업에선 무조건 === 연산자만 써, 버그가 많아져서 ...타입체크를 안하면.. ㅋ ㅇㅋ?
+            // 논리값? 비교하는 거라서 ===이어야 된다는 거야? 음 == , === 둘다 되는데 정확히 타입까지 비교할려면 === 써야하는거 내가 쓴 = 는 그냥 오른쪽 값 왼쪽에 넣는 거니까 내가 잘못 넣은거거 응, 그리고네저렇게 넣으면
+            // location.herf = 'ifeifie'의 결과가는 자동적으로 'ifeifie' 이게 되
+             // 그래서 
+            
+             //  if("ifeifie") { 이렇게 바뀜 그럼  if 문에서 문자열이 값이 있으니깐?? true가 되고 그렇게 되면 무조건 네이버에만 가겠지? 나머진 else if니깐
+            // 그 밑에 body에 있는 네이버 가는 버튼도 같이 봐줄수 있어? 어디야? 커서 이동해봐
+			{ location.href="http://www.naver.com/";
+			} else if (site==="nate")
+			{ location.href="http://www.nate.com/";
+			}else if (site==="google")
+			{ location.href="http://www.google.com/";
+            }
+		}//
+        function goSite() {
+            const url = document.frmSite.siteUrl.value;
+            if (url !== "")	{
+                location.href = url;
+            }
+	    }
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<!-- div#header 영역 시작 -->
+	<div id="header">
+		<h1 class="logo"><a href="#"><img src="images/logo.gif" width="159" height="29" alt="로고" /></a></h1>
+		<ul id="infoMenu">
+			<li><a href="#">홈</a></li>
+			<li><a href="#">로그인</a></li>
+			<li><a href="#">회원가입</a></li>
+			<li><a href="#">사이트맵</a></li>
+			<li><a href="#">ENGLISH</a></li>
+		</ul>
+		<h2>메인 메뉴</h2>
+		<ul id="navigation">
+			<li><img src="images/topmenu01.gif" width="124" height="43" alt="HTML에 대해" class="hand" 
+			onmouseover="subMenu(this, 1);" onmouseout="this.src='images/topmenu01.gif'"/>
+				<ul id="naviSub01">
+					<li><a href="#">(X)HTML에 대해</a></li>
+					<li><a href="#">레퍼런스 소개</a></li>
+					<li><a href="#">활용예제</a></li>
+				</ul>
+			</li>
+			<li><img src="images/topmenu02.gif" width="108" height="43" alt="CSS에 대해" class="hand" 
+				onmouseover="subMenu(this, 2);"
+				onmouseout="this.src='images/topmenu02.gif'"/>
+				<ul id="naviSub02">
+					<li><a href="#">CSS 소개</a></li>
+					<li><a href="#">레퍼런스 소개</a></li>
+					<li><a href="#">활용예제</a></li>
+				</ul></li>
+			<li><img src="images/topmenu03.gif" width="90" height="43" alt="웹 표준" class="hand"
+				onmouseover="subMenu(this, 3);"
+				onmouseout="this.src='images/topmenu03.gif'"/>
+				<ul id="naviSub03">
+					<li><a href="#">웹표준 소개</a></li>
+					<li><a href="#">레퍼런스 소개</a></li>
+					<li><a href="#">활용예제</a></li>
+				</ul></li>
+			<li><img src="images/topmenu04.gif" width="101" height="43" alt="웹 접근성" class="hand" 
+				onmouseover="subMenu(this, 4);"
+				onmouseout="this.src='images/topmenu04.gif'"/>
+				<ul id="naviSub04">
+					<li><a href="#">웹접근성 소개</a></li>
+					<li><a href="#">활용예제</a></li>
+				</ul></li>
+			<li><img src="images/topmenu05.gif" width="109" height="43" alt="묻고 답하기" class="hand" 
+				onmouseover="subMenu(this, 5);"
+				onmouseout="this.src='images/topmenu05.gif'"/>
+				<ul id="naviSub05">
+					<li><a href="#">자주하는 질문</a></li>
+					<li><a href="#">질문하기</a></li>
+				</ul></li>
+			<li><img src="images/topmenu06.gif" width="93" height="43" alt="자료실" class="hand" 
+				onmouseover="subMenu(this, 6);"
+				onmouseout="this.src='images/topmenu06.gif'"/>
+				<ul id="naviSub06">
+					<li><a href="#">자유 게시판</a></li>
+					<li><a href="#">자료실</a></li>
+				</ul></li>
+		</ul>
+	</div>
+	<!-- div#header 영역 종료 -->
+	<div id="visual">
+		<p><img src="images/main_visual.gif" width="824" height="104" /></p>
+	</div>
+	<div id="contents">
+		<!-- 콘텐츠 1단 영역 시작 -->
+		<div class="section">
+			<!-- 로그인 영역 시작 -->
+			<div class="login">
+				<h3><img src="images/h3_login.gif" width="44" height="18" alt="로그인" /></h3>
+				<form action="" method="post">
+				<fieldset>
+					<legend>로그인 정보 입력</legend>
+					<p class="id">
+						<label for="logid"><img width="30" height="12" src="images/title_id.gif" alt="아이디" /></label>
+						<input type="text" id="logid" />
+					</p>
+					<p class="pw">
+						<label for="logpw"><img width="41" height="12" src="images/title_pw.gif" alt="비밀번호" /></label>
+						<input type="password" id="logpw" />
+					</p>
+					<p class="btnLogin">
+						<input type="image" src="images/btn_login.gif" width="50" height="45" alt="로그인" />
+					</p>
+				</fieldset>
+				</form>
+				<div class="memberInfo">
+					<a href="#" class="join">회원가입</a>
+					<a href="#" class="find">아이디/비밀번호 찾기</a>
+				</div>
+			</div><!-- 250열에 있어-->
+			<!-- 로그인 영역 종료 -->
+			<div class="banner">
+				<h3>배너</h3>
+				<ul>
+					<li><a href="#"><img src="images/btn_html.gif" width="235" height="35" /></a></li>
+					<li><a href="#"><img src="images/btn_css.gif" width="235" height="35" /></a></li>
+				</ul>
+			</div>
+			<div class="standardBox">
+				<h3><img src="images/h3_standards.gif" width="69" height="14" alt="웹 표준이란?" /></h3>
+				<dl>
+					<dt class="subject"><a href="#">웹 표준이란?</a></dt>
+					<dd class="img"><img src="images/img_standards.gif" width="61" height="68" /></dd>
+					<dd class="brief"><a href="#">W3C 단체에서 규정한 웹 기술 사양에 대한 규칙을 말하며 표준 규격..</a></dd>
+				</dl>
+			</div>
+		</div>
+		<!-- 콘텐츠 1단 영역 종료 -->
+		<!-- 콘텐츠 2단 영역 시작 -->
+		<div class="sectionInfo">
+			<div class="search">
+				<h3>자료검색</h3>
+				<form action="" method="get">
+				<fieldset>
+					<legend>검색어 입력 폼</legend>
+					<label for="search"><img width="44" height="12" src="images/title_search.gif" alt="자료검색" /></label>
+					<input type="text" id="search" />
+					<input type="image" class="btnSearch" width="40" height="20" src="images/btn_search.gif" alt="검색" />
+				</fieldset>
+				</form>
+			</div>
+			<!-- 게시판(공지사항, 자료실) 영역 시작 -->
+			<div id="boardBox">
+				<!-- 공지사항 영역 시작 -->
+				<h3 class="tab01"><a href="javascript:chBoard('notice');"><img width="76" height="23" src="images/tab_notice_ov.gif" alt="공지사항" id="noticeImg"/></a></h3>
+				<div id="noticeList">
+					<ul>
+						<li><a href="#">공지사항 공지사항 공지사항 공지사항 공지사항...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">공지사항 공지사항</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">공지사항 공지사항 공지사항 공지사항 공지사항...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">공지사항 공지사항 공지사항 공지사항 공지사항...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">공지사항 공지사항 공지사항 공지사항 공지사항...</a> <span class="date">2021.02.16</span></li>
+					</ul>
+					<p class="more"><a href="#"><img width="37" height="10" src="images/icon_more.gif" alt="더보기" /></a></p>
+				</div>
+				<!-- 공지사항 영역 종료 -->
+				<!-- 자료실 영역 시작 -->
+				<h3 class="tab02"><a href="javascript:chBoard('pds');"><img width="79" height="23" src="images/tab_pds.gif" alt="자료실" id="pdsImg"/></a></h3>
+				<div id="pdsList">
+					<ul>
+						<li><a href="#">자료실 자료실 자료실 자료실 자료실 자료...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">자료실 자료실 자료실 자료실 자료실 자료...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">자료실 자료실 자료실 자료실 자료실 자료...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">자료실 자료실 자료실 자료실 자료실 자료...</a> <span class="date">2021.02.16</span></li>
+						<li><a href="#">자료실 자료실 자료실 자료실 자료실 자료...</a> <span class="date">2021.02.16</span></li>
+					</ul>
+					<p class="more"><a href="#"><img width="37" height="10" src="images/icon_more.gif" alt="더보기" /></a></p>
+				</div>
+				<!-- 자료실 영역 종료 -->
+			</div>
+			<!-- 게시판(공지사항, 자료실) 영역 종료 -->
+			<!-- 새소식 영역 시작 -->
+			<div class="newsList">
+				<h3><img src="images/h3_news.gif" width="36" height="14" alt="새소식" /></h3>
+				<div class="newsWrap">
+					<h4><a href="#">W3C 사이트가 리뉴얼되었습니다.</a></h4>
+					<p class="date">2021.02.16</p>
+					<p class="brief"><a href="#">디자인 및 다양한 view 환경을 고려하여 구성되어 있으며, 기존보다 최신 정보 및 개발자를 위한 기술 가이드도 찾기 쉽...</a></p>
+				</div>
+				<p class="imgWrap"><span class="img"><img width="112" height="66" src="images/img_112_66.gif" /></span> <span class="imgTitle">W3C 리뉴얼</span></p>
+				<p class="more"><a href="#"><img width="37" height="10" src="images/icon_more.gif" alt="더보기" /></a></p>
+			</div>
+			<!-- 새소식 영역 종료 -->
+		</div>
+		<!-- 콘텐츠 2단 영역 종료 -->
+		<!-- 콘텐츠 3단 영역 시작 -->
+		<div class="sectionEvent">
+			<div class="event">
+				<!-- 신규 이벤트 영역 시작 -->
+				<h3><img src="images/h3_event.gif" width="58" height="14" alt="신규 이벤트" /></h3>
+				<div id="eventDetail">
+					<p><a href="#" class="thumbnail"><img src="images/img_163_77.gif" width="163" height="77" /><em class="brief">오픈기념 이벤트 준비 중!</em></a></p>
+				</div>
+				<div class="btnGo">
+					<a href="#"><img src="images/btn_event_prev.gif" width="17" height="16" alt="이전" /></a>
+					<a href="#"><img src="images/btn_event_next.gif" width="17" height="16" alt="다음" /></a>
+				</div>
+				<!-- 신규 이벤트 영역 종료 -->
+				<!-- 관련 사이트 영역 시작 -->
+				<div class="site-link">
+					<h3><img src="images/h3_relation.gif" width="61" height="14" alt="관련 사이트" class="site-link__title" /></h3>
+					<form action="" method="post">
+					<fieldset>
+                        <!-- 이렇게 하면 될거같은데? -->
+                        <!-- 이렇게 한번 해볼래? ㅋㅋ  -->
+                        <legend>관련 사이트 링크</legend> <!--ㅇㅋㅇㅋ--> 
+                        <!-- 나도 네이티브 이벤트는 오랜만에 써서 가물가물하네 ㅋㅋ -->
+                        <!-- 태영아 통화를 하자 그게 설명이 빠를듯 ㅋㅋ -->
+						<select  onchange="changeSite($event)"><!--여기 이벤트는 그냥 형이 임의로 만든 변수야? 위에 함수 다시 한번만 볼게 저건 임의의 변수인데 저 변수는 onchage가 알아서 넣어주는 값이야-->
+							<option value="naver" id="naver">네이버로 이동</option><!--select로 셋 중에 고르고 옆에 이미지 누르면 아까 함수 작동 되게 하려고 했는데 이상하다 아까 넣었는데 다른 파일인가보다 이건 아직 안 넣었네  아직 이벤트를 안넣은거지?-->
+							<option value="nate" id="nate">네이트로 이동</option>
+							<option value="google" id="google">구글로 이동</option>
+                        </select>
+                        <!-- 너가 원하는건 이 버튼을 누르면 저 함수가 실행되면서 이동하는거지? -->
+                        <!-- 우선 그럴려면 셀렉트 박스가 클릭 되었을때에 site라는 변수가 id 값으로 변경되어야 겠지? -->
+                        <!-- 그 다음에 버튼을 클릭하고 함수가 실행되면 site 변수에 의해서 이동하게 될거야 -->
+                        <!-- 여기서 site의 값을 바꿔주는 부분이 있어?...없는걸로 보여서 ~ -->
+						<img src="images/btn_go.gif"  width="34" height="21" alt="이동" align="absmiddle" class="hand" onclick="hrefLocation();" />
+					</fieldset>
+					</form>
+				</div>
+				<!-- 관련 사이트 영역 종료 -->
+			</div>
+
+			<!-- 인기 사이트 영역 시작 -->
+			<div class="siteFavorite">
+				<h3><img src="images/h3_favorite.gif" width="61" height="14" alt="인기 사이트" /></h3>
+				<ol class="ranking">
+					<li class="no1">W3C<span class="order"><img width="8" height="8" src="images/icon_up.gif" alt="상승" /></span></li>
+					<li class="no2">CSS ZEN GARDEN<span class="order"><img width="8" height="8" src="images/icon_down.gif" alt="하강" /></span></li>
+					<li class="no3">WEB STANDARDS<span class="order"><img width="8" height="8" src="images/icon_stop.gif" alt="멈춤" /></span></li>
+					<li class="no4">웹 접근성 연구소<span class="order"><img width="8" height="8" src="images/icon_up.gif" alt="상승" /></span></li>
+				</ol>
+				<p class="more"><a href="#"><img width="37" height="10" src="images/icon_more.gif" alt="더보기" /></a></p>
+			</div>
+			<!-- 인기 사이트 영역 종료 -->
+		</div>
+		<!-- 콘텐츠 3단 영역 종료 -->
+	</div>
+	<!-- 슬로건 영역 시작 -->
+	<div id="slogan">
+		<h2>슬로건</h2>
+		<p class="sloganImg"><img src="images/icon_coffee.png" width="114" height="103" alt="커피잔" /></p>
+		<div class="sloganCon">
+			<q cite="http://www.w3.org/WAI/">The power of the Web is in its univerality, Access by everyone regardless of disability is an essential aspect.</q>
+			<p class="name">Tim Berners - Lee, W3C Director and invertor of the World Wide Web</p>
+		</div>
+	</div>
+	<!-- 슬로건 영역 종료 -->
+	<!-- 푸터 영역 시작 -->
+	<div id="footer">
+		<div class="footerInner">
+			<p class="footerLogo"><img src="images/logo_copyright.gif" width="105" height="21" alt="Logo" /></p>
+			<h2>사이트 이용안내</h2>
+			<ul class="guideMenu">
+				<li><a href="#">회사소개</a></li>
+				<li><a href="#">개인정보보호정책</a></li>
+				<li><a href="#">이메일주소무단수집거부</a></li>
+				<li><a href="#">Contact Us</a></li>
+				<li><a href="#">Site map</a></li>
+			</ul>
+			<address>
+				<span class="addr">서울시 마포구 상수동 123-12 한주빌딩 5층</span>
+				<span class="tel">· 전화 : 02-1234-5678</span>
+				<span class="fax">· FAX : 02-9876-5432</span>
+				<span class="email">· E-MAIL : webmaster@mail.com</span>
+				<span class="copyright">Copyright ⓒ WebCafe CONRPORATION ALL RIGHTSRESERVED.</span>
+			</address>
+		</div>
+	</div>
+	<!-- 푸터 영역 종료 -->
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</body>
+</html>

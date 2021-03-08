@@ -11,7 +11,7 @@ import {MapFunction, SnapshotState, UpdateStateCallback} from "./types";
 
 export class LocalStore<T> {
     private state: { stateSub: Subject<T>; stateObs$: Observable<Readonly<T>>; };
-    private currentStateValue: SnapshotState<T>;
+    private snapshotState: SnapshotState<T>;
 
     constructor(initState: Partial<T>) {
         this._createStore(initState);
@@ -25,7 +25,7 @@ export class LocalStore<T> {
     update(statCallback: UpdateStateCallback<T>): void;
     update(newStateOrStateCallback: Partial<T> | UpdateStateCallback<T>): void {
         if (typeof newStateOrStateCallback === 'function') {
-            const newState = (newStateOrStateCallback as UpdateStateCallback<T>)(this.currentStateValue);
+            const newState = (newStateOrStateCallback as UpdateStateCallback<T>)(this.snapshotState);
             this._update(newState as T);
         } else {
             this._update(newStateOrStateCallback as T);
@@ -50,7 +50,7 @@ export class LocalStore<T> {
         const sub: BehaviorSubject<T> = new BehaviorSubject<T>(initState as T);
         const obs$: Observable<T> = sub.asObservable();
 
-        this._updateCurrentValue(initState as T);
+        this._updateSnapshotState(initState as T);
         this.state = ({stateSub: sub, stateObs$: obs$});
     }
 
@@ -62,12 +62,12 @@ export class LocalStore<T> {
     }
 
     private _update(newState: T): void {
-        this._updateCurrentValue(newState);
+        this._updateSnapshotState(newState);
         this.state.stateSub.next(newState);
     }
 
-    private _updateCurrentValue(newState: T): void {
-        this.currentStateValue = newState;
+    private _updateSnapshotState(newState: T): void {
+        this.snapshotState = newState;
     }
 
     private _state$(): Observable<T> {

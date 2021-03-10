@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   removeName(): void {
-    this.nameStore.update({name: ''});
+    this.nameStore.update({name: 'minyeoung seo'});
   }
 
   ngOnDestroy(): void {
@@ -40,8 +40,16 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 }
 
-class NameStore extends LocalStore<{ name: string }> {
-  constructor(init: { name: string }) {
+/**
+ * Store를 생성함
+ * 생성자를 통해서 초기 값을 설정
+ * 그리고 extends를 통해서 타입을 선언함
+ */
+
+type LocalStoreType = { name: string };
+
+class NameStore extends LocalStore<LocalStoreType> {
+  constructor(init: LocalStoreType) {
     super(init);
   }
 }
